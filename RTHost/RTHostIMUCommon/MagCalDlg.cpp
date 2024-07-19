@@ -126,7 +126,7 @@ void MagCalDlg::onProcess()
     QProcess proc;
 
     proc.setWorkingDirectory(m_fitDir);
-    proc.start(RTIMUCALDEFS_OCTAVE_COMMAND);
+    proc.start(RTIMUCALDEFS_OCTAVE_COMMAND, QStringList({}));
     proc.waitForFinished(20000);
     if (proc.exitCode() == 0) {
         m_cal->magCalSaveCorr(qPrintable(m_fitDir));
